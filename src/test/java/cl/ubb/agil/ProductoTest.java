@@ -21,8 +21,9 @@ public class ProductoTest {
 	}
 	 @Test
 	public void EstaElStockBajoFalso(){
+		Existencia existencia= new Existencia("2");
 		Producto producto= new Producto("Tallarines",1,2);
-		producto.stock=20;
+		producto.addExistencia(existencia);
 		boolean resultado=producto.isBajoStock();
 		assertThat(resultado, is(false));
 	}
@@ -39,6 +40,7 @@ public class ProductoTest {
 		 Producto producto= new Producto("Tallarines",1,5);
 		 producto.getProximaExistencia();		 
 	 }
+	 
 	 @Test
 	 public void ObitnerProximaExistenciaDevuelveUnaExistencia() throws ExcepcionDeProducto{
 		 Existencia existencia = new Existencia("2");
@@ -58,21 +60,26 @@ public class ProductoTest {
 	}
 	 
 	 /*este test revela que hay un error en el codigo ya que permite 
-	  * agregar una una unidad mas que el stock maximo
+	  * agregar una unidad mas que el stock maximo
 	 */
 	 @Test
 	 public void agregarExistenciaEsFalseExcedeElMaximo(){
 		 Existencia existencia = new Existencia("1");
-		 Producto producto= new Producto("tallarines",2,20);
-		 producto.stock=20;
+		 Existencia existencia1 = new Existencia("1");
+		 Existencia existencia2 = new Existencia("1");
+		 Producto producto= new Producto("tallarines",2,3);
+		 producto.addExistencia(existencia);
+		 producto.addExistencia(existencia1);
+		 producto.addExistencia(existencia2);
 		 boolean resultado= producto.addExistencia(existencia);
 		 assertThat(resultado, is(false));
 	}
 	 
+	 /*esta purbe fuerza el stock a ser mayor al stock maximo, para forzar el return false*/
 	 @Test
 	 public void agregarExistenciaEsFalso(){
 		 Existencia existencia = new Existencia("1");
-		 Producto producto= new Producto("tallarines",2,20);
+		 Producto producto= new Producto("tallarines",2,4);
 		 producto.stock=21;
 		 boolean resultado= producto.addExistencia(existencia);
 		 assertThat(resultado, is(false));

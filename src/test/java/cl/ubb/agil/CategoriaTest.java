@@ -28,7 +28,7 @@ public class CategoriaTest {
 	}
 	
 	@Test
-	public void AsignarNombre(){
+	public void AsignarNombreCambiaNombreAnterior(){
 		Categoria categoria = new Categoria("","");
 		categoria.setNombre("nombre");
 		String Resultado = categoria.getNombre();
@@ -36,7 +36,7 @@ public class CategoriaTest {
 		
 	}
 	@Test
-	public void AsignarCodigo(){
+	public void AsignarCodigoCambiaElCodigoAnterior(){
 		Categoria categoria = new Categoria("","");
 		categoria.setCodigo("codigo");
 		String Resultado = categoria.getCodigo();
