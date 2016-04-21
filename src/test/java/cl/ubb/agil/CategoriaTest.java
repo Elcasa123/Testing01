@@ -8,7 +8,7 @@ import org.junit.Test;
 public class CategoriaTest {
 	
 	@Test
-	public void obtenerNombre(){
+	public void obtenerNombreEscateg1(){
 		Categoria categoria=new Categoria("categ1","123");
 		String Resultado = categoria.getNombre();
 		assertThat(Resultado,is("categ1"));		

@@ -9,7 +9,7 @@ public class ExistenciaTest {
 	
 	
 	@Test
-	public void obtenerNumero(){
+	public void obtenerNumeroEs4(){
 		Existencia existencia = new Existencia("4");
 		String Resultado=existencia.getNumero();
 		assertThat(Resultado,is("4"));
